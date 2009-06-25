@@ -1,0 +1,18 @@
+#summary One-Info on licensing for the app
+#labels Phase-Requirements
+
+= Introduction =
+
+I did some investigation on the various Free/Open Source Software licenses which are available. 
+
+
+= Details =
+
+Good summary and comparison [http://developer.kde.org/documentation/licensing/licenses_summary.html here]:
+
+For the purposes of this project, I'm not sure if a "[http://en.wikipedia.org/wiki/Copyleft copyleft]" license would be best, or a "[http://en.wikipedia.org/wiki/Permissive_free_software_licence permissive]" license?  
+
+I'm thinking since it is for academic purposes, copyleft would make sense.  However, this would restrict us from selling the software in the future.  Since it's our first Android app, I'm sure there won't be a big market for it anyway ;-)
+
+Comments welcome!
+
