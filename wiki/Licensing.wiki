@@ -1,4 +1,4 @@
-#summary One-Info on licensing for the app
+#summary Info on licensing for the app
 #labels Phase-Requirements
 
 = Introduction =
@@ -15,4 +15,3 @@ For the purposes of this project, I'm not sure if a "[http://en.wikipedia.org/wi
 I'm thinking since it is for academic purposes, copyleft would make sense.  However, this would restrict us from selling the software in the future.  Since it's our first Android app, I'm sure there won't be a big market for it anyway ;-)
 
 Comments welcome!
-
