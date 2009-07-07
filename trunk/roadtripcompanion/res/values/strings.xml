@@ -2,4 +2,8 @@
 <resources>
     <string name="hello">Hello World, Test!</string>
     <string name="app_name">roadtripcompanion</string>
+    <string name="tripNameLabel">Trip Name:</string>
+    <string name="startDateLabel">Start Date:</string>
+    <string name="startDateButton">Pick Start Date</string>
+    <string name="createTrip">Create Trip</string>
 </resources>

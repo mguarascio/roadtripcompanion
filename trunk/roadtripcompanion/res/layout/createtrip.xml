@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/tripNameLabel"
+    />
+<EditText 
+android:id="@+id/tripNameTxt"
+android:inputType="text"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+/>
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/startDateLabel"
+    />
+<TextView android:id="@+id/dateDisplay"
+    		  android:layout_width="wrap_content"
+    		  android:layout_height="wrap_content"
+    		  android:text=""/>
+<Button android:id="@+id/startDate"
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:text="@string/startDateButton"/>
+
+
+<Button 
+	android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/createTrip"
+    android:id="@+id/createTripBtn"
+/>
+</LinearLayout>
+
