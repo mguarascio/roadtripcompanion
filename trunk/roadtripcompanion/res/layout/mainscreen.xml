@@ -11,7 +11,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
 <ImageButton 
 android:layout_width="wrap_content" 
 android:layout_height="wrap_content" 
-android:id="@+id/createTripButton"></ImageButton>
+android:id="@+id/createTripButton" android:background="@drawable/icon"></ImageButton>
 
 <ImageButton 
 android:layout_width="wrap_content" 
