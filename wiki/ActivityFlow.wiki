@@ -1,0 +1,12 @@
+#summary Describes application page (activity) flow and links to individual page descriptions
+#labels Phase-Design
+
+
+= RoadTripCompanion Activity Flow =
+
+Main Menu 
+      --> Create a Trip  --> Preview Trip --> View Trip <br>
+      --> View Trips --> View Trip <br>
+      --> Post to Twitter <br>
+      --> Take a Photo <br>
+      --> Settings <br>
