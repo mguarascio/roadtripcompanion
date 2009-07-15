@@ -2,7 +2,7 @@
 #labels Phase-Design
 
 
-= RoadTripCompanion Activity Flow =
+= RoadTripCompanion: Activity Flow =
 
 Main Menu 
       --> Create a Trip  --> Preview Trip --> View Trip <br>
