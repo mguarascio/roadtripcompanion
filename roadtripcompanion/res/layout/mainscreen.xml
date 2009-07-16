@@ -16,21 +16,21 @@ android:id="@+id/createTripButton" android:background="@drawable/icon"></ImageBu
 <ImageButton 
 android:layout_width="wrap_content" 
 android:layout_height="wrap_content" 
-android:id="@+id/viewTripButton"></ImageButton>
+android:id="@+id/viewTripButton" android:background="@drawable/icon"> android:background="@drawable/icon"</ImageButton>
 
 <ImageButton 
 android:layout_width="wrap_content" 
 android:layout_height="wrap_content" 
-android:id="@+id/tweetButton"></ImageButton>
+android:id="@+id/tweetButton" android:background="@drawable/icon"> android:background="@drawable/tweet"</ImageButton>
 
 <ImageButton 
 android:layout_width="wrap_content" 
 android:layout_height="wrap_content" 
-android:id="@+id/takePhotoButton"></ImageButton>
+android:id="@+id/takePhotoButton" android:background="@drawable/icon"> android:background="@drawable/camera"</ImageButton>
 
 <ImageButton 
 android:layout_width="wrap_content"
 android:layout_height="wrap_content" 
-android:id="@+id/handleSettingsButton"></ImageButton>
+android:id="@+id/handleSettingsButton" android:background="@drawable/icon"></ImageButton>
 
 </LinearLayout>
