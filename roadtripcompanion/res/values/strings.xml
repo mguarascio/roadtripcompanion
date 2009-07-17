@@ -5,5 +5,9 @@
     <string name="tripNameLabel">Trip Name:</string>
     <string name="startDateLabel">Start Date:</string>
     <string name="startDateButton">Pick Start Date</string>
+    <string name="startAddressLabel">Start Address:</string>
+    <string name="destAddressLabel">Destination Address:</string>
     <string name="createTrip">Create Trip</string>
+    <string name="previewTripBtn">Preview Trip</string>
+    <string name="viewTrips">View Trips</string>
 </resources>
