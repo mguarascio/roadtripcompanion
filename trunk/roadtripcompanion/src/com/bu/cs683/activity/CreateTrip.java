@@ -22,6 +22,8 @@ public class CreateTrip extends Activity
 {
 	private TextView mDateDisplay;
 	private TextView mName;
+	private TextView mStartAddr;
+	private TextView mDestAddr;
 	private Button mPickDate;
 	private Button mCreateTrip;
 
@@ -43,9 +45,11 @@ public class CreateTrip extends Activity
 
 		mDateDisplay = (TextView) findViewById(R.id.dateDisplay);
 		mName = (TextView) findViewById(R.id.tripNameTxt);
+		mStartAddr = (TextView) findViewById(R.id.startAddressTxt);
+		mDestAddr = (TextView) findViewById(R.id.destAddressTxt);
 		mPickDate = (Button) findViewById(R.id.startDate);
-		mCreateTrip = (Button) findViewById(R.id.createTripBtn);
-
+		mCreateTrip = (Button) findViewById(R.id.previewTripBtn);
+		
 		// add a click listener for pickDate button
 		mPickDate.setOnClickListener(new View.OnClickListener()
 		{
@@ -60,20 +64,31 @@ public class CreateTrip extends Activity
 		{
 			public void onClick(View v)
 			{
-				//final Intent intent = getIntent();
-				
 				// Get a cursor to access the trip
 				Cursor mCursor = managedQuery(Trip.CONTENT_URI, RoadTripCompanion.TRIP_PROJECTION, null, null, null);
 				Log.d(TAG,"Count of records: " + mCursor.getCount());
 				
-				// validate and save to DB
+				// validate values
+				//TODO: validation and whatnot
+				
+				// save to DB
 				ContentValues contentValues = new ContentValues();
 				contentValues.put(Trip.NAME, mName.getText().toString());
 				contentValues.put(Trip.START_DATE, new GregorianCalendar().getTimeInMillis());
+				contentValues.put(Trip.SOURCE, mStartAddr.getText().toString());
+				contentValues.put(Trip.DESTINATION, mDestAddr.getText().toString());
 				getContentResolver().insert(Trip.CONTENT_URI, contentValues);
 				
 				mCursor.requery();
 				Log.d(TAG,"Count of records: " + mCursor.getCount());
+				
+				//Context context = getApplicationContext();
+	
+				//Intent previewIntent = new Intent(getApplicationContext(), PreviewTrip.class);
+				
+				//Uri uri = new Uri();
+				
+				//startActivity(getIntent());
 				
 			}
 		});
@@ -110,7 +125,6 @@ public class CreateTrip extends Activity
 	// the call back received when the user "sets" the date in the dialog
 	private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener()
 	{
-
 		public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
 		{
 			mYear = year;

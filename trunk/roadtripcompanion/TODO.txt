@@ -1,0 +1,2 @@
++use alarm and notification for trip reminder?
++user preferences page?  allow notifications, notification lead time, etc.
