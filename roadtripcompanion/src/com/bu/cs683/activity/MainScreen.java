@@ -21,6 +21,7 @@ import android.widget.TextView;
 public class MainScreen extends Activity
 {
 	ImageButton mTweet;
+	ImageButton mTakePhoto;
 	TextView mText;
 	
 	static final int DATE_DIALOG_ID = 0;
@@ -37,6 +38,7 @@ public class MainScreen extends Activity
 		
 		
 		mTweet = (ImageButton) findViewById(R.id.tweetButton);
+		mTakePhoto = (ImageButton) findViewById(R.id.takePhotoButton);
 		mText = (TextView)findViewById(R.id.TextView01);
 		
 		mTweet.setOnClickListener(new View.OnClickListener()
@@ -44,7 +46,15 @@ public class MainScreen extends Activity
 			public void onClick(View v)
 			{
 				//showDialog(2);
-				mText.setText("SAUSAGE");
+				mText.setText("Tweet");
+			}
+		});
+		mTakePhoto.setOnClickListener(new View.OnClickListener()
+		{
+			public void onClick(View v)
+			{
+				//showDialog(2);
+				mText.setText("Take Photo");
 			}
 		});
 	}
