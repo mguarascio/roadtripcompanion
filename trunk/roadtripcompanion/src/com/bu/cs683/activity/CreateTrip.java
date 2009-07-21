@@ -6,7 +6,7 @@ import java.util.GregorianCalendar;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -70,25 +70,14 @@ public class CreateTrip extends Activity
 				
 				// validate values
 				//TODO: validation and whatnot
-				
-				// save to DB
-				ContentValues contentValues = new ContentValues();
-				contentValues.put(Trip.NAME, mName.getText().toString());
-				contentValues.put(Trip.START_DATE, new GregorianCalendar().getTimeInMillis());
-				contentValues.put(Trip.SOURCE, mStartAddr.getText().toString());
-				contentValues.put(Trip.DESTINATION, mDestAddr.getText().toString());
-				getContentResolver().insert(Trip.CONTENT_URI, contentValues);
-				
-				mCursor.requery();
-				Log.d(TAG,"Count of records: " + mCursor.getCount());
-				
-				//Context context = getApplicationContext();
 	
-				//Intent previewIntent = new Intent(getApplicationContext(), PreviewTrip.class);
+				Intent previewIntent = new Intent(getApplicationContext(), PreviewTrip.class);
+				previewIntent.putExtra(Trip.NAME, mName.getText().toString());
+				previewIntent.putExtra(Trip.START_DATE, new GregorianCalendar().getTimeInMillis());
+				previewIntent.putExtra(Trip.SOURCE, mStartAddr.getText().toString());
+				previewIntent.putExtra(Trip.DESTINATION, mDestAddr.getText().toString());
 				
-				//Uri uri = new Uri();
-				
-				//startActivity(getIntent());
+				startActivity(previewIntent);
 				
 			}
 		});
