@@ -8,6 +8,9 @@
     <string name="startAddressLabel">Start Address:</string>
     <string name="destAddressLabel">Destination Address:</string>
     <string name="createTrip">Create Trip</string>
+    <string name="previewTrip">Preview Trip</string>
     <string name="previewTripBtn">Preview Trip</string>
+    <string name="reviseTripBtn">Revise Trip</string>
+    <string name="createTripBtn">Create Trip</string>
     <string name="viewTrips">View Trips</string>
 </resources>
