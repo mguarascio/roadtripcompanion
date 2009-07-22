@@ -13,4 +13,12 @@
     <string name="reviseTripBtn">Revise Trip</string>
     <string name="createTripBtn">Create Trip</string>
     <string name="viewTrips">View Trips</string>
+    <string name="table_layout_10_user">User     :</string>
+    <string name="table_layout_10_username_text">UserName</string>
+    <string name="table_layout_10_password">Password:</string>
+    <string name="table_layout_10_password_text">Password</string>
+    <string name="table_layout_10_cancel">Cancel</string>
+    <string name="table_layout_10_login">Login</string>
+    <string name="mainScreen">RoadTripCompanion</string>
+	<string name="tweet">Twitter Client</string>
 </resources>

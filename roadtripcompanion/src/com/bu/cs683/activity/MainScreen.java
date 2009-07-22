@@ -9,6 +9,7 @@ import com.bu.cs683.persistence.RoadTripCompanion.Trip;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -36,17 +37,18 @@ public class MainScreen extends Activity
 		Log.v(TAG, "#### onCreate()");
 		setContentView(R.layout.mainscreen);
 		
-		
 		mTweet = (ImageButton) findViewById(R.id.tweetButton);
 		mTakePhoto = (ImageButton) findViewById(R.id.takePhotoButton);
 		mText = (TextView)findViewById(R.id.TextView01);
 		
+		// Add a click listener for the Tweet button
 		mTweet.setOnClickListener(new View.OnClickListener()
 		{
 			public void onClick(View v)
 			{
-				//showDialog(2);
-				mText.setText("Tweet");
+				// Create an intent to open the Tweet activity
+				Intent tweetIntent = new Intent(getApplicationContext(), TweetLogin.class);
+				startActivity(tweetIntent);
 			}
 		});
 		mTakePhoto.setOnClickListener(new View.OnClickListener()
