@@ -1,13 +1,14 @@
 package com.bu.cs683.activity;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,8 +16,10 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
-import com.bu.cs683.persistence.RoadTripCompanion;
 import com.bu.cs683.persistence.RoadTripCompanion.Trip;
+
+//TODO: Progress bar
+//TODO: Setup shared menu
 
 public class CreateTrip extends Activity
 {
@@ -64,10 +67,6 @@ public class CreateTrip extends Activity
 		{
 			public void onClick(View v)
 			{
-				// Get a cursor to access the trip
-				Cursor mCursor = managedQuery(Trip.CONTENT_URI, RoadTripCompanion.TRIP_PROJECTION, null, null, null);
-				Log.d(TAG,"Count of records: " + mCursor.getCount());
-				
 				// validate values
 				//TODO: validation and whatnot
 	
@@ -90,6 +89,20 @@ public class CreateTrip extends Activity
 
 		// display the current date
 		updateDisplay();
+		
+		// get the intent and load the data if present
+		Intent incomingIntent = getIntent();
+		if(null != incomingIntent.getExtras())
+		{
+			mName.setText(incomingIntent.getStringExtra(Trip.NAME));
+			
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			long dateLong = incomingIntent.getLongExtra(Trip.START_DATE, new GregorianCalendar().getTimeInMillis());
+			mDateDisplay.setText(sdf.format(new Date(dateLong)));
+			
+			mStartAddr.setText(incomingIntent.getStringExtra(Trip.SOURCE));
+			mDestAddr.setText(incomingIntent.getStringExtra(Trip.DESTINATION));
+		}
 	}
 
 	@Override
@@ -106,9 +119,8 @@ public class CreateTrip extends Activity
 	// updates the date we display in the TextView
 	private void updateDisplay()
 	{
-		mDateDisplay.setText(new StringBuilder()
-		// Month is 0 based so add 1
-				.append(mMonth + 1).append("-").append(mDay).append("-").append(mYear).append(" "));
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		mDateDisplay.setText(sdf.format(new Date(mYear-1900,mMonth,mDay)));
 	}
 
 	// the call back received when the user "sets" the date in the dialog

@@ -6,13 +6,15 @@
     <string name="startDateLabel">Start Date:</string>
     <string name="startDateButton">Pick Start Date</string>
     <string name="startAddressLabel">Start Address:</string>
-    <string name="destAddressLabel">Destination Address:</string>
+    <string name="destAddressLabel">Dest. Address:</string>
     <string name="createTrip">Create Trip</string>
     <string name="previewTrip">Preview Trip</string>
     <string name="previewTripBtn">Preview Trip</string>
     <string name="reviseTripBtn">Revise Trip</string>
     <string name="createTripBtn">Create Trip</string>
-    <string name="viewTrips">View Trips</string>
+    <string name="listTrips">Choose Trip</string>
+    <string name="viewTrip">View Trip</string>
+    <string name="tripNameHeader">TRIP NAME</string>
     <string name="table_layout_10_user">User     :</string>
     <string name="table_layout_10_username_text">UserName</string>
     <string name="table_layout_10_password">Password:</string>
