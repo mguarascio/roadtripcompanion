@@ -42,7 +42,7 @@ public class RoadTripProvider extends ContentProvider
     static {
         sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
         sUriMatcher.addURI(RoadTripCompanion.AUTHORITY, "trips", TRIPS);
-        sUriMatcher.addURI(RoadTripCompanion.AUTHORITY, "trip/#", TRIP_ID);
+        sUriMatcher.addURI(RoadTripCompanion.AUTHORITY, "trips/#", TRIP_ID);
 
         sTripProjectionMap = new HashMap<String, String>();
         sTripProjectionMap.put(Trip._ID, Trip._ID);
