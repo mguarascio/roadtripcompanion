@@ -28,6 +28,11 @@
     <string name="table_layout_10_password_text">Password</string>
     <string name="table_layout_10_cancel">Cancel</string>
     <string name="table_layout_10_login">Login</string>
+    <string name="table_layout_10_update_text">UpdateText</string>
+    <string name="table_layout_10_setup">Setup</string>
+    <string name="table_layout_10_update">UpdateText</string>
     <string name="mainScreen">RoadTripCompanion</string>
 	<string name="tweet">Twitter Client</string>
+	<string name="twitterlogin">Twitter Login</string>
+	
 </resources>

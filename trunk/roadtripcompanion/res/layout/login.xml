@@ -16,10 +16,12 @@
  -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/LinearLayout01" 
               android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:id="@+id/LinearLayout02" 
                   android:layout_height="wrap_content"
                   android:layout_width="fill_parent"
                   android:orientation="horizontal">
@@ -30,7 +32,8 @@
                 android:layout_width="wrap_content"
                 android:padding="3dip"/>
 
-        <EditText id="@+id/username"
+        <EditText 
+                  android:id="@+id/username"
                   android:text="@string/table_layout_10_username_text"
                   android:layout_height="wrap_content"
                   android:layout_width="wrap_content"
@@ -38,6 +41,7 @@
                   android:scrollHorizontally="true"/>
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:id="@+id/LinearLayout03" 
                   android:layout_height="wrap_content"
                   android:layout_width="fill_parent"
                   android:orientation="horizontal">
@@ -48,7 +52,8 @@
             android:textStyle="bold"
             android:padding="3dip"/>
 
-    <EditText id="@+id/password"
+    <EditText 
+              android:id="@+id/password"
               android:text="@string/table_layout_10_password_text"
               android:password="true"
               android:layout_height="wrap_content"
@@ -57,15 +62,18 @@
               android:scrollHorizontally="true"/>
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:id="@+id/LinearLayout04" 
                   android:layout_height="wrap_content"
                   android:layout_width="fill_parent"
                   android:orientation="horizontal">
-    <ImageButton id="@+id/cancel"
+    <Button 
+            android:id="@+id/cancelbtn"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="@string/table_layout_10_cancel"/>
-
-    <ImageButton id="@+id/loginbtn"
+       
+    <Button 
+            android:id="@+id/loginbtn"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="@string/table_layout_10_login"/>

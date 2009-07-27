@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="wrap_content"
+              android:layout_height="fill_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_height="wrap_content"
+                  android:layout_width="fill_parent"
+                  android:orientation="horizontal">
+        <EditText 
+                  android:id="@+id/updateText"
+                  android:text="@string/table_layout_10_update_text"
+                  android:padding="3dip"
+                  android:singleLine="true"
+                  android:layout_height="wrap_content"
+                  android:layout_width="175dip"
+                  android:scrollHorizontally="true"/>
+        <Button 
+                android:id="@+id/update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/table_layout_10_update"/>
+        <Button 
+                android:id="@+id/setup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/table_layout_10_setup"/>
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_height="wrap_content"
+                  android:layout_width="fill_parent"
+                  android:orientation="horizontal">
+        <WebView 
+                 android:id="@+id/webView"
+                 android:background="#77CC0000"
+                 android:layout_height="wrap_content"
+                 android:layout_width="fill_parent"
+                 android:focusable="false"/>
+    </LinearLayout>
+</LinearLayout>
