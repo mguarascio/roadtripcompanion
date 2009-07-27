@@ -10,6 +10,7 @@ import android.provider.BaseColumns;
  */
 public final class RoadTripCompanion
 {
+	
 	public static final String AUTHORITY = "com.bu.cs683.activity.roadtripprovider";
 
 	/**

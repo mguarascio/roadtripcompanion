@@ -11,15 +11,15 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
 import com.bu.cs683.persistence.RoadTripCompanion.Trip;
-
-//TODO: Progress bar
-//TODO: Setup shared menu
+import com.bu.cs683.utilities.OptionsMenuHandler;
 
 public class CreateTrip extends Activity
 {
@@ -134,4 +134,26 @@ public class CreateTrip extends Activity
 			updateDisplay();
 		}
 	};
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu)
+	{
+		boolean val = super.onCreateOptionsMenu(menu);
+		menu.add(0, OptionsMenuHandler.MENU_HOME_ID, 0, R.string.menu_home);
+		menu.add(0, OptionsMenuHandler.MENU_LIST_ID, 1, R.string.menu_list);
+		menu.add(0, OptionsMenuHandler.MENU_TWEET_ID, 2, R.string.menu_tweet);
+		menu.add(0, OptionsMenuHandler.MENU_PHOTO_ID, 3, R.string.menu_photo);
+		return val;
+	}
+	
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = OptionsMenuHandler.getIntentForOptionsItem(item, getApplicationContext());
+        if(null != intent)
+        {
+        	startActivity(intent);
+        	return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
