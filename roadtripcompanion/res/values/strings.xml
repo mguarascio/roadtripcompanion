@@ -15,6 +15,13 @@
     <string name="listTrips">Choose Trip</string>
     <string name="viewTrip">View Trip</string>
     <string name="tripNameHeader">TRIP NAME</string>
+    
+    <string name="menu_home">Main Menu</string>
+    <string name="menu_create">Create Trip</string>
+    <string name="menu_list">List Trips</string>
+    <string name="menu_tweet">Tweet</string>
+    <string name="menu_photo">Take a Photo</string>
+    
     <string name="table_layout_10_user">User     :</string>
     <string name="table_layout_10_username_text">UserName</string>
     <string name="table_layout_10_password">Password:</string>

@@ -1,98 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TabHost xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@android:id/tabhost"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-        <TabWidget
-            android:id="@android:id/tabs"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-        <FrameLayout
-            android:id="@android:id/tabcontent"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-            <com.google.android.maps.MapView
-				android:id="@+id/mapview"
-				android:layout_width="fill_parent" android:layout_height="fill_parent"
-				android:enabled="true" android:clickable="true"
-				android:apiKey="0yRuTY785N-Ab55vpz1qspto55xlPMgYRk2o1GQ" />
-		    <TextView 
-                android:id="@+id/textview3"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent" 
-                android:text="trip directions" />
-            <TableLayout android:id="@+id/tripDetailsLayout" xmlns:android="http://schemas.android.com/apk/res/android"
-   			    android:layout_width="fill_parent"
-			    android:layout_height="fill_parent">
-			    <TableRow android:focusable="false">
-			       <TextView
-			       		android:id="@+id/tripNameLabel"
-			            android:padding="3dip" 
-			            android:focusable="false"
-			            android:selectAllOnFocus="false"
-			    		android:textSize="12px"
-			    		android:text="@string/tripNameLabel"/>
-			       <TextView
-			       		android:id="@id/tripNameTxt"
-			            android:gravity="right"
-			    		android:padding="3dip"
-			    		android:focusable="false"
-			    		android:selectAllOnFocus="false"
-			    		android:textSize="16px"/>
-			    </TableRow>
-			    <TableRow android:focusable="false">
-			       <TextView
-			       		android:id="@id/dateDisplay"
-			            android:padding="3dip" 
-			            android:focusable="false"
-			            android:selectAllOnFocus="false"
-			    		android:textSize="12px"
-			    		android:text="@string/startDateLabel"/>
-			       <TextView
-			       		android:id="@id/startDate"
-			            android:gravity="right"
-			    		android:padding="3dip"
-			    		android:focusable="false"
-			    		android:selectAllOnFocus="false"
-			    		android:textSize="16px"/>
-			    </TableRow>
-			    <TableRow android:focusable="false">
-			       <TextView
-			       		android:id="@+id/startAddressLabel"
-			            android:padding="3dip" 
-			            android:focusable="false"
-			            android:selectAllOnFocus="false"
-			    		android:textSize="12px"
-			    		android:text="@string/startAddressLabel"/>
-			       <TextView
-			       		android:id="@id/startAddressTxt"
-			            android:gravity="right"
-			    		android:padding="3dip"
-			    		android:focusable="false"
-			    		android:selectAllOnFocus="false"
-			    		android:textSize="16px"/>
-			    </TableRow>
-			    <TableRow android:focusable="false">
-			       <TextView
-			       		android:id="@+id/destAddressLabel"
-			            android:padding="3dip" 
-			            android:focusable="false"
-			            android:selectAllOnFocus="false"
-			    		android:textSize="12px"
-			    		android:text="@string/destAddressLabel"/>
-			       <TextView
-			       		android:id="@id/destAddressTxt"
-			            android:gravity="right"
-			    		android:padding="3dip"
-			    		android:focusable="false"
-			    		android:selectAllOnFocus="false"
-			    		android:textSize="16px"/>
-			    </TableRow>
+	android:id="@android:id/tabhost" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<LinearLayout android:orientation="vertical"
+		android:layout_width="fill_parent" android:layout_height="fill_parent">
+		<TabWidget android:id="@android:id/tabs"
+			android:layout_width="fill_parent" android:layout_height="wrap_content" />
+		<FrameLayout android:id="@android:id/tabcontent"
+			android:layout_width="fill_parent" android:layout_height="fill_parent">
+			<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:id="@+id/mapContainer" android:layout_width="fill_parent"
+				android:layout_height="fill_parent">
+				<com.google.android.maps.MapView
+					android:id="@+id/mapview" android:layout_width="fill_parent"
+					android:layout_height="fill_parent" android:enabled="true"
+					android:clickable="true" android:apiKey="0yRuTY785N-Ab55vpz1qspto55xlPMgYRk2o1GQ" />
+				<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:orientation="vertical" android:gravity="bottom"
+					android:paddingLeft="5px" android:paddingTop="5px"
+					android:paddingRight="5px">
+					<com.bu.cs683.utilities.TransparentPanel 
+						android:id="@+id/transparent_panel" android:layout_width="fill_parent"
+						android:layout_height="wrap_content" android:paddingTop="5px"
+						android:paddingLeft="5px" android:paddingBottom="5px"
+						android:paddingRight="5px">
+						<Button android:id="@+id/toggleTraffic"
+							android:layout_width="wrap_content" android:layout_height="wrap_content"
+							android:text="Toggle Traffic" />
+					</com.bu.cs683.utilities.TransparentPanel>
+				</LinearLayout>
+			</FrameLayout>
+			<TextView android:id="@+id/textview3" android:layout_width="fill_parent"
+				android:layout_height="fill_parent" android:text="trip directions" />
+			<TableLayout android:id="@+id/tripDetailsLayout"
+				xmlns:android="http://schemas.android.com/apk/res/android"
+				android:layout_width="fill_parent" android:layout_height="fill_parent">
+				<TableRow android:focusable="false">
+					<TextView android:id="@+id/tripNameLabel" android:padding="3dip"
+						android:focusable="false" android:selectAllOnFocus="false"
+						android:textSize="12px" android:text="@string/tripNameLabel" />
+					<TextView android:id="@id/tripNameTxt" android:gravity="right"
+						android:padding="3dip" android:focusable="false"
+						android:selectAllOnFocus="false" android:textSize="16px" />
+				</TableRow>
+				<TableRow android:focusable="false">
+					<TextView android:id="@id/dateDisplay" android:padding="3dip"
+						android:focusable="false" android:selectAllOnFocus="false"
+						android:textSize="12px" android:text="@string/startDateLabel" />
+					<TextView android:id="@id/startDate" android:gravity="right"
+						android:padding="3dip" android:focusable="false"
+						android:selectAllOnFocus="false" android:textSize="16px" />
+				</TableRow>
+				<TableRow android:focusable="false">
+					<TextView android:id="@+id/startAddressLabel"
+						android:padding="3dip" android:focusable="false"
+						android:selectAllOnFocus="false" android:textSize="12px"
+						android:text="@string/startAddressLabel" />
+					<TextView android:id="@id/startAddressTxt"
+						android:gravity="right" android:padding="3dip" android:focusable="false"
+						android:selectAllOnFocus="false" android:textSize="16px" />
+				</TableRow>
+				<TableRow android:focusable="false">
+					<TextView android:id="@+id/destAddressLabel"
+						android:padding="3dip" android:focusable="false"
+						android:selectAllOnFocus="false" android:textSize="12px"
+						android:text="@string/destAddressLabel" />
+					<TextView android:id="@id/destAddressTxt" android:gravity="right"
+						android:padding="3dip" android:focusable="false"
+						android:selectAllOnFocus="false" android:textSize="16px" />
+				</TableRow>
 			</TableLayout>
-    	</FrameLayout>
-    </LinearLayout>
+		</FrameLayout>
+	</LinearLayout>
 </TabHost>

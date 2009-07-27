@@ -7,14 +7,15 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
 import com.bu.cs683.persistence.RoadTripCompanion;
 import com.bu.cs683.persistence.RoadTripCompanion.Trip;
-
-//TODO: Progress bar
+import com.bu.cs683.utilities.OptionsMenuHandler;
 
 public class ListTrips extends ListActivity
 {
@@ -34,8 +35,6 @@ public class ListTrips extends ListActivity
 		// Used to map notes entries from the database to views
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.triptextview, mCursor, new String[] { Trip.NAME }, new int[] { R.id.tripText });
         setListAdapter(adapter);
-        
-	
 	}	
 	
 	@Override
@@ -66,4 +65,26 @@ public class ListTrips extends ListActivity
 		
 		startActivity(viewTrip);
 	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu)
+	{
+		boolean val = super.onCreateOptionsMenu(menu);
+		menu.add(0, OptionsMenuHandler.MENU_HOME_ID, 0, R.string.menu_home);
+		menu.add(0, OptionsMenuHandler.MENU_CREATE_ID, 1, R.string.menu_create);
+		menu.add(0, OptionsMenuHandler.MENU_TWEET_ID, 2, R.string.menu_tweet);
+		menu.add(0, OptionsMenuHandler.MENU_PHOTO_ID, 3, R.string.menu_photo);
+		return val;
+	}
+	
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = OptionsMenuHandler.getIntentForOptionsItem(item, getApplicationContext());
+        if(null != intent)
+        {
+        	startActivity(intent);
+        	return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

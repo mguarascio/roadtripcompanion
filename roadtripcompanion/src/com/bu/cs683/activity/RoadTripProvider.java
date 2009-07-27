@@ -50,8 +50,6 @@ public class RoadTripProvider extends ContentProvider
         sTripProjectionMap.put(Trip.START_DATE, Trip.START_DATE);
         sTripProjectionMap.put(Trip.SOURCE, Trip.SOURCE);
         sTripProjectionMap.put(Trip.DESTINATION, Trip.DESTINATION);
-        //sTripProjectionMap.put(Notes.CREATED_DATE, Notes.CREATED_DATE);
-        //sTripProjectionMap.put(Notes.MODIFIED_DATE, Notes.MODIFIED_DATE);
     }
     
     /**
