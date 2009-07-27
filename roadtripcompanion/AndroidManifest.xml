@@ -64,7 +64,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        -->
-    </application>
+        <activity android:name="TwitterClient"
+        		  android:label="@string/tweet">	  
+        	<intent-filter>
+                <action android:name="android.intent.action.PICK" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="TwitterLogin"
+        		  android:label="@string/twitterlogin">	  
+        	<intent-filter>
+                <action android:name="android.intent.action.PICK" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> 
+		<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> #2
+		<uses-permission android:name="android.permission.INTERNET" />
+</application>
     <uses-sdk android:minSdkVersion="3" />
 </manifest> 

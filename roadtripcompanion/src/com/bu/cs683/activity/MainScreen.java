@@ -46,8 +46,9 @@ public class MainScreen extends Activity
 		{
 			public void onClick(View v)
 			{
-				// Create an intent to open the Tweet activity
-				Intent tweetIntent = new Intent(getApplicationContext(), TweetLogin.class);
+				// Create an intent to open the TwitterClient activity
+				//Intent tweetIntent = new Intent(getApplicationContext(), TweetLogin.class);
+				Intent tweetIntent = new Intent(getApplicationContext(), TwitterClient.class);
 				startActivity(tweetIntent);
 			}
 		});
