@@ -4,34 +4,113 @@ android:id="@+id/LinearLayout01"
 android:orientation="vertical"
 android:layout_width="fill_parent" 
 android:layout_height="fill_parent" 
-xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/bigworld">
+xmlns:android="http://schemas.android.com/apk/res/android" 
+>
 
-
+<LinearLayout 
+android:id="@+id/LinearLayout02" 
+android:orientation="horizontal"
+android:layout_width="fill_parent" 
+android:layout_height="wrap_content" 
+xmlns:android="http://schemas.android.com/apk/res/android" 
+>
 
 <ImageButton 
 android:layout_width="wrap_content" 
 android:layout_height="wrap_content" 
-android:id="@+id/createTripButton" android:background="@drawable/icon"></ImageButton>
+android:id="@+id/createTripButton" android:background="@drawable/car"></ImageButton>
+
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="Create Trip"/>
+
+</LinearLayout>
+
+<LinearLayout 
+android:id="@+id/LinearLayout03" 
+android:orientation="horizontal"
+android:layout_width="fill_parent" 
+android:layout_height="wrap_content" 
+xmlns:android="http://schemas.android.com/apk/res/android" 
+>
 
 <ImageButton 
 android:layout_width="wrap_content" 
 android:layout_height="wrap_content" 
-android:id="@+id/viewTripButton" android:background="@drawable/icon"> android:background="@drawable/icon"</ImageButton>
+android:id="@+id/listTripsButton" android:background="@drawable/checkmark"> android:background="@drawable/icon"</ImageButton>
+
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="List Trips"
+    />
+
+</LinearLayout>
+
+<LinearLayout 
+android:id="@+id/LinearLayout04" 
+android:orientation="horizontal"
+android:layout_width="fill_parent" 
+android:layout_height="wrap_content" 
+xmlns:android="http://schemas.android.com/apk/res/android" 
+>
 
 <ImageButton 
 android:layout_width="wrap_content" 
 android:layout_height="wrap_content" 
 android:id="@+id/tweetButton" android:background="@drawable/twitter"> android:background="@drawable/tweet"</ImageButton>
 
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="Twitter Client"
+    />
+
+</LinearLayout>
+
+<LinearLayout 
+android:id="@+id/LinearLayout05" 
+android:orientation="horizontal"
+android:layout_width="fill_parent" 
+android:layout_height="wrap_content" 
+xmlns:android="http://schemas.android.com/apk/res/android" 
+>
+
 <ImageButton 
 android:layout_width="wrap_content" 
 android:layout_height="wrap_content" 
 android:id="@+id/takePhotoButton" android:background="@drawable/nikon"> android:background="@drawable/camera"</ImageButton>
+
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="Take Photo"
+    />
+
+</LinearLayout>
+
+<LinearLayout 
+android:id="@+id/LinearLayout06" 
+android:orientation="horizontal"
+android:layout_width="fill_parent" 
+android:layout_height="wrap_content" 
+xmlns:android="http://schemas.android.com/apk/res/android" 
+>
 
 <ImageButton 
 android:layout_width="wrap_content"
 android:layout_height="wrap_content" 
 android:id="@+id/handleSettingsButton" android:background="@drawable/icon" ></ImageButton>
 
-<TextView android:id="@+id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="Settings"
+    />
+
+</LinearLayout>
+
+<TextView android:id="@+id/TextView01" android:layout_width="wrap_content" 
+android:layout_height="wrap_content"></TextView>
 </LinearLayout>

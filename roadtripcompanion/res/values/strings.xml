@@ -15,6 +15,8 @@
     <string name="listTrips">Choose Trip</string>
     <string name="viewTrip">View Trip</string>
     <string name="tripNameHeader">TRIP NAME</string>
+    <string name="gUserName">"MJurkoic"</string>
+    <string name="gPassword">"kielbasa"</string>
     
     <string name="menu_home">Main Menu</string>
     <string name="menu_create">Create Trip</string>
