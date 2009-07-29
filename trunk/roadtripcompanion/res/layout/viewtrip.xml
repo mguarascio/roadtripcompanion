@@ -14,7 +14,7 @@
 				<com.google.android.maps.MapView
 					android:id="@+id/mapview" android:layout_width="fill_parent"
 					android:layout_height="fill_parent" android:enabled="true"
-					android:clickable="true" android:apiKey="0yRuTY785N-Ab55vpz1qspto55xlPMgYRk2o1GQ" />
+					android:clickable="true" android:apiKey="0Hq-IEF8B9nI2ZDYjIZJ65Bl-6IfMtNObp-Ib9w" />
 				<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:orientation="vertical" android:gravity="bottom"

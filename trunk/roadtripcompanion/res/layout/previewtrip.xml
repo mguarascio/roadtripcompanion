@@ -40,6 +40,6 @@ android:layout_height="wrap_content"
 		android:id="@+id/mapview"
 		android:layout_width="fill_parent" android:layout_height="fill_parent"
 		android:enabled="true" android:clickable="true"
-		android:apiKey="0yRuTY785N-Ab55vpz1qspto55xlPMgYRk2o1GQ" />
+		android:apiKey="0Hq-IEF8B9nI2ZDYjIZJ65Bl-6IfMtNObp-Ib9w" />
 </LinearLayout>
 

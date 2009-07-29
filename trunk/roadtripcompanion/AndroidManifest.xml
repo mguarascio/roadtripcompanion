@@ -13,18 +13,17 @@
             android:authorities="com.bu.cs683.activity.roadtripprovider"
         />
         <uses-library android:name="com.google.android.maps" />
-       <!--  <activity android:name="MainScreen"
+       <activity android:name="MainScreen"
                  android:label="@string/mainScreen">
            <intent-filter>
                <action android:name="android.intent.action.MAIN" />
                <category android:name="android.intent.category.LAUNCHER" />
            </intent-filter>
         </activity>
-        -->
       <activity android:name="CreateTrip"
                   android:label="@string/createTrip">
             <intent-filter>
-                <action android:name="android.intent.action.EDIT" />
+                <action android:name="android.intent.action.PICK" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -48,8 +47,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.INFO" />
             </intent-filter>
-        </activity>	
-        <!--    
+        </activity>	 
         <activity android:name="Tweet"
         		  android:label="@string/tweet">	  
         	<intent-filter>
@@ -78,9 +76,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> 
-		<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> #2
-		<uses-permission android:name="android.permission.INTERNET" />
+        <activity android:name="TWC"
+        		  android:label="@string/tweet">	  
+        	<intent-filter>
+                <action android:name="android.intent.action.PICK" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 </application>
     <uses-sdk android:minSdkVersion="3" />
 </manifest> 
