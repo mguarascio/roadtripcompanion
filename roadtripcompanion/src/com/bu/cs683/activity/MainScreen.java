@@ -30,9 +30,6 @@ public class MainScreen extends Activity
 	//ImageButton mAttributes;
 	TextView mText;
 	
-	//String strUserName = "MJurkoic";
-	//String strPassword = "kielbasa";
-		
 	static final int DATE_DIALOG_ID = 0;
 	private static final String TAG = "MainScreen";
 	
