@@ -6,10 +6,13 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -17,10 +20,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ZoomControls;
 
 import com.bu.cs683.persistence.RoadTripCompanion.Trip;
 import com.bu.cs683.utilities.MappingUtility;
+import com.bu.cs683.utilities.TripAlarmReceiver;
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
@@ -44,6 +49,8 @@ public class PreviewTrip extends MapActivity
 	MapController mc;
 	GeoPoint src;
 	GeoPoint dest;
+	
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	
 	ProgressDialog progressDialog;
 
@@ -77,7 +84,6 @@ public class PreviewTrip extends MapActivity
 		mTripName.setText(intent.getStringExtra(Trip.NAME));
 
 		mTripDate = (TextView) findViewById(R.id.dateDisplay);
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		dateLong = intent.getLongExtra(Trip.START_DATE, new GregorianCalendar().getTimeInMillis());
 		mTripDate.setText(sdf.format(new Date(dateLong)));
 
@@ -92,7 +98,7 @@ public class PreviewTrip extends MapActivity
 		mCreateTrip.setOnClickListener(new View.OnClickListener() 
 		{
 			public void onClick(View v)
-			{
+			{	
 				// validate and save to DB
 				ContentValues contentValues = new ContentValues();
 				contentValues.put(Trip.NAME, mTripName.getText().toString());
@@ -100,10 +106,12 @@ public class PreviewTrip extends MapActivity
 				contentValues.put(Trip.SOURCE, mStartAddress);
 				contentValues.put(Trip.DESTINATION, mDestAddress);
 				
-				getContentResolver().insert(Trip.CONTENT_URI, contentValues);
+				Uri newTripUri = getContentResolver().insert(Trip.CONTENT_URI, contentValues);
+				String idString = newTripUri.getLastPathSegment();
+				// Create Notification
+				createAlarm(Integer.valueOf(idString).intValue());
 				
 				Intent viewTrips = new Intent(getApplicationContext(), ListTrips.class);
-				
 				startActivity(viewTrips);
 			}
 			
@@ -168,5 +176,24 @@ public class PreviewTrip extends MapActivity
 		mMapView.invalidate();
 		
 		mMapView.setTraffic(false);
+	}
+
+	private void createAlarm(int newTripId)
+	{
+		String as = ALARM_SERVICE;
+		
+		AlarmManager alarmMgr = (AlarmManager) getSystemService(as);
+		
+		long when = dateLong - AlarmManager.INTERVAL_DAY; //trigger the notification one day before the date of the trip 
+		
+		Intent broadcastIntent = new Intent(TripAlarmReceiver.class.getCanonicalName());
+		PendingIntent contentIntent = PendingIntent.getBroadcast(getApplicationContext(), newTripId, broadcastIntent, 0);
+
+		System.out.println(sdf.format(new Date(when)));
+		alarmMgr.set(AlarmManager.RTC_WAKEUP, when, contentIntent);
+		
+		Toast toasted = Toast.makeText(this, "Trip Created!", Toast.LENGTH_LONG);
+		toasted.setDuration(5000);
+		toasted.show();
 	}
 }
