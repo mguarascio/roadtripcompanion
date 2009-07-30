@@ -23,6 +23,7 @@ import com.bu.cs683.utilities.OptionsMenuHandler;
 
 public class CreateTrip extends Activity
 {
+	private long dateLong;
 	private TextView mDateDisplay;
 	private TextView mName;
 	private TextView mStartAddr;
@@ -66,13 +67,13 @@ public class CreateTrip extends Activity
 		mCreateTrip.setOnClickListener(new View.OnClickListener()
 		{
 			public void onClick(View v)
-			{
+			{				
 				// validate values
 				//TODO: validation and whatnot
 	
 				Intent previewIntent = new Intent(getApplicationContext(), PreviewTrip.class);
 				previewIntent.putExtra(Trip.NAME, mName.getText().toString());
-				previewIntent.putExtra(Trip.START_DATE, new GregorianCalendar().getTimeInMillis());
+				previewIntent.putExtra(Trip.START_DATE, dateLong);
 				previewIntent.putExtra(Trip.SOURCE, mStartAddr.getText().toString());
 				previewIntent.putExtra(Trip.DESTINATION, mDestAddr.getText().toString());
 				
@@ -97,7 +98,7 @@ public class CreateTrip extends Activity
 			mName.setText(incomingIntent.getStringExtra(Trip.NAME));
 			
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			long dateLong = incomingIntent.getLongExtra(Trip.START_DATE, new GregorianCalendar().getTimeInMillis());
+			dateLong = incomingIntent.getLongExtra(Trip.START_DATE, new GregorianCalendar().getTimeInMillis());
 			mDateDisplay.setText(sdf.format(new Date(dateLong)));
 			
 			mStartAddr.setText(incomingIntent.getStringExtra(Trip.SOURCE));
@@ -120,6 +121,7 @@ public class CreateTrip extends Activity
 	private void updateDisplay()
 	{
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		dateLong = new Date(mYear-1900,mMonth,mDay).getTime();
 		mDateDisplay.setText(sdf.format(new Date(mYear-1900,mMonth,mDay)));
 	}
 
