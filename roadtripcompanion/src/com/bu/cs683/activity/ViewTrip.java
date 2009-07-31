@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Map;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -17,6 +18,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.ZoomControls;
@@ -92,7 +95,7 @@ public class ViewTrip extends MapActivity
 		mMapView.displayZoomControls(true);
 		
 	    mTabHost.addTab(mTabHost.newTabSpec("tab_test1").setIndicator("Map").setContent(R.id.mapContainer));
-	    mTabHost.addTab(mTabHost.newTabSpec("tab_test2").setIndicator("Directions").setContent(R.id.textview3));
+	    mTabHost.addTab(mTabHost.newTabSpec("tab_test2").setIndicator("Directions").setContent(R.id.directionsContainer));
 	    mTabHost.addTab(mTabHost.newTabSpec("tab_test3").setIndicator("Details").setContent(R.id.tripDetailsLayout));
 	    
 	    mTabHost.setCurrentTab(0);
@@ -103,6 +106,18 @@ public class ViewTrip extends MapActivity
 	    progressDialog.show();
 	    
 	    initializeDetails(getIntent());
+	    try
+		{
+			src = MappingUtility.getMappingUtility().getGeoPointByLocationName(sourceAddress, getApplicationContext());
+			dest = MappingUtility.getMappingUtility().getGeoPointByLocationName(destAddress, getApplicationContext());
+			
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		
+	    initializeDirections((ListView)findViewById(android.R.id.list));
 	    
 	    // takes a bit of time so we'll run it in a background thread and show the progress dialog
 	    new Thread() {
@@ -112,8 +127,10 @@ public class ViewTrip extends MapActivity
 	    		initializeMap();
 	    		handler.sendEmptyMessage(0); //notify handler that thread is done
 	    	}
+
 	    }.start();
 	
+	    
 	   mToggleTraffic = (Button) findViewById(R.id.toggleTraffic);
 	   mToggleTraffic.setOnClickListener(new View.OnClickListener() {
 
@@ -149,17 +166,15 @@ public class ViewTrip extends MapActivity
 
 	private void initializeMap()
 	{
-		try
-		{
-			src = MappingUtility.getMappingUtility().getGeoPointByLocationName(sourceAddress, getApplicationContext());
-			dest = MappingUtility.getMappingUtility().getGeoPointByLocationName(destAddress, getApplicationContext());
-			
 			overlays = MappingUtility.getMappingUtility().drawPathOverlays(src, dest, Color.BLUE);
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
+
+	}
+	
+	private void initializeDirections(ListView view)
+	{
+		List<Map<String,String>> directions = MappingUtility.getMappingUtility().getDirections(src, dest);
+		SimpleAdapter adapter = new SimpleAdapter(getApplicationContext(), directions, R.layout.triptextview, new String[] {"direction"},new int[]{R.id.tripText});
+		view.setAdapter(adapter);
 	}
 	
 	private void refreshMapData(GeoPoint src, GeoPoint dest)
