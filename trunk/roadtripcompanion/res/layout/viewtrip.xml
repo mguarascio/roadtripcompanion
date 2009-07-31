@@ -31,8 +31,18 @@
 					</com.bu.cs683.utilities.TransparentPanel>
 				</LinearLayout>
 			</FrameLayout>
-			<TextView android:id="@+id/textview3" android:layout_width="fill_parent"
-				android:layout_height="fill_parent" android:text="trip directions" />
+			<LinearLayout android:id="@+id/directionsContainer" xmlns:android="http://schemas.android.com/apk/res/android"
+				android:orientation="vertical" android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+				<ListView android:id="@android:id/list"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:textFilterEnabled="true" android:headerDividersEnabled="true"
+					android:footerDividersEnabled="true" 
+					android:clickable="false"/>
+				<TextView android:id="@android:id/empty"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:text="" />
+			</LinearLayout>
 			<TableLayout android:id="@+id/tripDetailsLayout"
 				xmlns:android="http://schemas.android.com/apk/res/android"
 				android:layout_width="fill_parent" android:layout_height="fill_parent">
