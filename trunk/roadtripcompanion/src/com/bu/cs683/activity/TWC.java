@@ -23,6 +23,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.webkit.WebView;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+
+import org.xml.sax.SAXException;
+import java.net.URL; 
+
+import javax.xml.parsers.SAXParser; 
+import javax.xml.parsers.SAXParserFactory; 
+
+import org.xml.sax.InputSource; 
+import org.xml.sax.XMLReader; 
 
 
 public class TWC extends Activity 
@@ -92,6 +106,82 @@ public class TWC extends Activity
 				
 				// Output a success or failure message to the screen?
 				mText.setText(result);
+				
+				// Parse the returned XML file pulling out the name and text elements
+				// and placing these data to the TextView
+				//String parsedResult;
+				//parsedResult = ResultParser(result);
+				//mText.setText(parsedResult);
+				
+//				Document doc = null;
+//				try 
+//				{
+//				DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+//				DocumentBuilder db = dbf.newDocumentBuilder();
+//				doc = db.parse(result);
+//				}
+//				 catch (IOException ioe) 
+//				 {
+//					 mText.setText("AAAA" + result);
+//					 //nm.notifyWithText(0, “Invalid XML format!!”,
+//					 //NotificationManager.LENGTH_SHORT, null);
+//				 } 
+//				 catch (ParserConfigurationException pce) 
+//				 {
+//					 mText.setText("BBBB" + result);
+//					 //nm.notifyWithText(0, “Could not parse XML!”,
+//					 //NotificationManager.LENGTH_SHORT, null);
+//				 }
+//				 catch (SAXException se) 
+//				 {
+//					 mText.setText("CCCC" + result);
+//					 //nm.notifyWithText(0, “Could not parse XML!”,
+//					 //NotificationManager.LENGTH_SHORT, null);
+//				 }
+//					 
+//				String s1 = doc.getElementsByTagName("text").toString();
+//				String s2 = doc.getElementsByTagName("name").toString();
+//				String s3 = s1 + s2;
+				
+//				/* Create a new TextView to display the parsingresult later. */ 
+//		          TextView tv = new TextView(this); 
+//		          try { 
+//		               /* Create a URL we want to load some xml-data from. */ 
+//		               URL url = new URL("http://www.anddev.org/images/tut/basic/parsingxml/example.xml"); 
+//
+//		               /* Get a SAXParser from the SAXPArserFactory. */ 
+//		               SAXParserFactory spf = SAXParserFactory.newInstance(); 
+//		               SAXParser sp = spf.newSAXParser(); 
+//
+//		               /* Get the XMLReader of the SAXParser we created. */ 
+//		               XMLReader xr = sp.getXMLReader(); 
+//		               /* Create a new ContentHandler and apply it to the XML-Reader*/ 
+//		               ExampleHandler myExampleHandler = new ExampleHandler(); 
+//		               xr.setContentHandler(myExampleHandler); 
+//		                
+//		               /* Parse the xml-data from our URL. */ 
+//		               xr.parse(new InputSource(url.openStream())); 
+//		               /* Parsing has finished. */ 
+//
+//		               /* Our ExampleHandler now provides the parsed data to us. */ 
+//		               ParsedExampleDataSet parsedExampleDataSet = 
+//		                                             myExampleHandler.getParsedData(); 
+//
+//		               /* Set the result to be displayed in our GUI. */ 
+//		               tv.setText(parsedExampleDataSet.toString()); 
+//		                
+//		          } catch (Exception e) { 
+//		               /* Display any Error to the GUI. */ 
+//		               tv.setText("Error: " + e.getMessage()); 
+//		               //Log.e(MY_DEBUG_TAG, "WeatherQueryError", e); 
+//		          } 
+//
+//				
+				mText.setText(result);
+				
+
+
+
 			
 							
 			}
@@ -116,10 +206,10 @@ public class TWC extends Activity
 					String result = client.postStateToTwitter(mTweetText.getText().toString());
 					
 					// If update succesful, display it
-					if (result == "Status:OK")
-					{
-						result = "Tweet successfully updated.";
-					}
+					//if (result == "Status:OK")
+					//{
+						result = "Tweet was successful.";
+					//}
 										
 					//String result = client.getFriendsTimeline();
 					

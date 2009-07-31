@@ -27,11 +27,15 @@ public class MainScreen extends Activity
 	ImageButton mListTrips;
 	ImageButton mTweet;
 	ImageButton mTakePhoto;
-	//ImageButton mAttributes;
+	ImageButton mSettings;
 	TextView mText;
 	
 	static final int DATE_DIALOG_ID = 0;
 	private static final String TAG = "MainScreen";
+	
+	// Public strings holding values used over multiple activities
+	public String TwitterUserName = "";
+	public String TwitterPassword = "";
 	
 	/** Called when the activity is first created. */
 	//savedInstanceState
@@ -46,6 +50,7 @@ public class MainScreen extends Activity
 		mListTrips = (ImageButton) findViewById(R.id.listTripsButton);
 		mTweet = (ImageButton) findViewById(R.id.tweetButton);
 		mTakePhoto = (ImageButton) findViewById(R.id.takePhotoButton);
+		mSettings = (ImageButton) findViewById(R.id.handleSettingsButton);
 		mText = (TextView)findViewById(R.id.TextView01);
 		
 		// Add a click listener for Create Trip button
@@ -53,6 +58,7 @@ public class MainScreen extends Activity
 		{
 			public void onClick(View v)
 			{
+				// Create an intent to open the Create Trip activity
 				Intent createTripIntent = new Intent(getApplicationContext(), CreateTrip.class);
 				startActivity(createTripIntent);
 			}
@@ -63,6 +69,7 @@ public class MainScreen extends Activity
 		{
 			public void onClick(View v)
 			{
+				// Create an intent to open the View Trips activity
 				Intent viewTripIntent = new Intent(getApplicationContext(), ListTrips.class);
 				startActivity(viewTripIntent);
 			}
@@ -73,9 +80,7 @@ public class MainScreen extends Activity
 		{
 			public void onClick(View v)
 			{
-				// Create an intent to open the TwitterClient activity
-				//Intent tweetIntent = new Intent(getApplicationContext(), TweetLogin.class);
-				//Intent tweetIntent = new Intent(getApplicationContext(), TwitterClient.class);
+				// Create an intent to open the TWC activity
 				Intent tweetIntent = new Intent(getApplicationContext(), TWC.class);
 				startActivity(tweetIntent);
 			}
@@ -86,8 +91,20 @@ public class MainScreen extends Activity
 		{
 			public void onClick(View v)
 			{
-				//showDialog(2);
-				mText.setText("Take Photo");
+				// Create an intent to open the Take Photo activity
+				Intent takePhotoIntent = new Intent(getApplicationContext(), TakePhoto.class);
+				startActivity(takePhotoIntent);
+			}
+		});
+		
+		// Add a click listener for Take Photo button
+		mSettings.setOnClickListener(new View.OnClickListener()
+		{
+			public void onClick(View v)
+			{
+				// Create an intent to open the Settings activity
+				Intent settingsIntent = new Intent(getApplicationContext(), Settings.class);
+				startActivity(settingsIntent);
 			}
 		});
 		

@@ -88,6 +88,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-</application>
+        <activity android:name="Settings"
+        		  android:label="@string/settings">	  
+        	<intent-filter>
+                <action android:name="android.intent.action.PICK" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="TakePhoto"
+        		  android:label="@string/takephoto">	  
+        	<intent-filter>
+                <action android:name="android.intent.action.PICK" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+            </application>
     <uses-sdk android:minSdkVersion="3" />
 </manifest> 

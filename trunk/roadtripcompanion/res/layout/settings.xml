@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+
+<TextView 
+android:text="Twitter UserName" 
+android:id="@+id/twitterUserNameLabel" 
+android:layout_height="wrap_content" 
+android:layout_width="wrap_content"></TextView>
+
+<EditText 
+android:id="@+id/twitterUserNameText"
+android:inputType="text"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+>
+</EditText>
+
+<TextView 
+android:text="Twitter Password" 
+android:id="@+id/twitterPasswordLabel" 
+android:layout_height="wrap_content" 
+android:layout_width="wrap_content"
+></TextView>
+
+<EditText 
+android:id="@+id/twitterPasswordTdxt"
+android:inputType="text"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:password="true">
+</EditText>
+
+<Button android:id="@+id/saveSettingsButton" 
+android:layout_width="fill_parent" 
+android:layout_height="wrap_content" 
+android:text="Save Settings"></Button>
+
+
+
+</LinearLayout>
