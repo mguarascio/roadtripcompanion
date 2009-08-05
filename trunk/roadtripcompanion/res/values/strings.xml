@@ -22,8 +22,8 @@
     <string name="menu_create">Create Trip</string>
     <string name="menu_list">List Trips</string>
     <string name="menu_tweet">Tweet</string>
-    <string name="menu_photo">Take a Photo</string>
-    <string name="takephoto">Take a Photo</string>
+    <string name="menu_photo">Take Photo</string>
+    <string name="takephoto">Take Photo</string>
     
     <string name="table_layout_10_user">User     :</string>
     <string name="table_layout_10_username_text">UserName</string>

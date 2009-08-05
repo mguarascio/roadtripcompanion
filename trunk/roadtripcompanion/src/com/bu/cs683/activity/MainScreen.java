@@ -18,8 +18,9 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.DatePicker;
 import android.widget.TextView;
-import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.*;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 public class MainScreen extends Activity
 {
@@ -32,6 +33,7 @@ public class MainScreen extends Activity
 	
 	static final int DATE_DIALOG_ID = 0;
 	private static final String TAG = "MainScreen";
+	private SharedPreferences app_preferences;
 	
 	// Public strings holding values used over multiple activities
 	public String TwitterUserName = "";
@@ -53,6 +55,14 @@ public class MainScreen extends Activity
 		mSettings = (ImageButton) findViewById(R.id.handleSettingsButton);
 		mText = (TextView)findViewById(R.id.TextView01);
 		
+		// Sets up application preferences
+		app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
+		// Default Twitter UserName and Password preferences to the user's
+		SharedPreferences.Editor editor = app_preferences.edit();
+		editor.putString("twitter_username", "MJurkoic");
+		editor.putString("twitter_password", "kielbasa");
+		editor.commit();
+				
 		// Add a click listener for Create Trip button
 		mCreateTrip.setOnClickListener(new View.OnClickListener()
 		{
