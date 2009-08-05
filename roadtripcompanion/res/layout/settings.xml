@@ -39,6 +39,11 @@ android:layout_width="fill_parent"
 android:layout_height="wrap_content" 
 android:text="Save Settings"></Button>
 
-
+<Button 
+android:id="@+id/cancelSettingsButton" 
+android:layout_width="fill_parent" 
+android:layout_height="wrap_content"  
+android:text="Cancel">
+</Button>
 
 </LinearLayout>

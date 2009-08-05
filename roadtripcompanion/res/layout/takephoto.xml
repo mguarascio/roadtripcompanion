@@ -5,7 +5,7 @@
     android:layout_height="fill_parent"
     >
 
-<TextView android:text="This feature is to take a picture and save it and the geographical location for historical purposes." 
+<TextView android:text="\n\r\n\rThis feature allows a picture to be taken and saved, with geographical location, to a database to be viewed on a map of the trip.\n\r\n\rIt is not implemented.\n\r\n\r" 
 android:id="@+id/TextView01" 
 android:layout_width="fill_parent" 
 android:layout_height="wrap_content"></TextView>

@@ -1,6 +1,7 @@
 package com.bu.cs683.activity;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URI;
 
 import org.apache.commons.httpclient.Credentials;
@@ -23,6 +24,23 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.webkit.WebView;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
+import java.net.URL; 
+
+import javax.xml.parsers.SAXParser; 
+import javax.xml.parsers.SAXParserFactory; 
+
+import org.xml.sax.InputSource; 
+import org.xml.sax.XMLReader; 
+
+import android.app.Activity; 
+import android.os.Bundle; 
+import android.preference.PreferenceManager;
+import android.util.Log; 
+import android.widget.TextView;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -31,12 +49,17 @@ import org.w3c.dom.Document;
 
 import org.xml.sax.SAXException;
 import java.net.URL; 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import javax.xml.parsers.SAXParser; 
 import javax.xml.parsers.SAXParserFactory; 
 
 import org.xml.sax.InputSource; 
 import org.xml.sax.XMLReader; 
+
+import com.bu.cs683.utilities.KmlDirectionsHandler;
 
 
 public class TWC extends Activity 
@@ -54,6 +77,7 @@ public class TWC extends Activity
 		
 	static final int DATE_DIALOG_ID = 0;
 	private static final String TAG = "Twitter Client";
+	public SharedPreferences app_preferences;
 	
     /** Called when the activity is first created. */
     @Override
@@ -67,21 +91,26 @@ public class TWC extends Activity
         mUserName.setWidth(150);
         mPassword = (TextView) findViewById(R.id.passwordTxt);
         mPassword.setWidth(150);
-        
-        //TextView mUserName;
-		//TextView mPassword;
-		
-		mUserName = (TextView) findViewById(R.id.usernameTxt);
-		mPassword = (TextView) findViewById(R.id.passwordTxt);
-		
-		mUserName.setText(getResources().getString(R.string.gUserName));
-		mPassword.setText(getResources().getString(R.string.gPassword));
-        
-              
+        // Set the text field and buttons
         mText = (TextView) findViewById(R.id.tweetTextViewView);
         mButton = (Button) findViewById(R.id.authenticateButton);
         mUpdateButton = (Button) findViewById(R.id.updateButton);
-						
+        
+        //TextView mUserName;
+		//TextView mPassword;
+		//mUserName = (TextView) findViewById(R.id.usernameTxt);
+		//mPassword = (TextView) findViewById(R.id.passwordTxt);
+		
+		// Set up preferences here
+		app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
+				
+		// Using strings
+		mUserName.setText(getResources().getString(R.string.gUserName));
+		mPassword.setText(getResources().getString(R.string.gPassword));
+		// Using SharedPreferences - Get twitter_username and twitter_password from preferences
+		//mUserName.setText(app_preferences.getString("twitter_username", "ABC"));
+		//mPassword.setText(app_preferences.getString("twitter_username", "123"));
+        			
 		// Add a click listener for the Authenticate button
 		mButton.setOnClickListener(new View.OnClickListener()
 		{
@@ -96,95 +125,90 @@ public class TWC extends Activity
 				//mUserName.setText(getResources().getString(R.string.gUserName));
 				//mPassword.setText(getResources().getString(R.string.gPassword));
 				
-							
+				//String strUserName = mUserName.getText().toString();
+				//String strPassword = mPassword.getText().toString();			
 				TwitterClient client = new TwitterClient();
+				// Using strings
 				client.setTwitteruser(mUserName.getText().toString());
-				client.setTwitterpwd(mPassword.getText().toString());
+				client.setTwitterpwd(mPassword.getText().toString());				
 				
-								
+				// Receive XML response from Twitter API
 				String result = client.getFriendsTimeline();
 				
 				// Output a success or failure message to the screen?
-				mText.setText(result);
+				//mText.setText(result);
 				
 				// Parse the returned XML file pulling out the name and text elements
 				// and placing these data to the TextView
-				//String parsedResult;
-				//parsedResult = ResultParser(result);
-				//mText.setText(parsedResult);
 				
-//				Document doc = null;
-//				try 
-//				{
-//				DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-//				DocumentBuilder db = dbf.newDocumentBuilder();
-//				doc = db.parse(result);
-//				}
-//				 catch (IOException ioe) 
-//				 {
-//					 mText.setText("AAAA" + result);
-//					 //nm.notifyWithText(0, “Invalid XML format!!”,
-//					 //NotificationManager.LENGTH_SHORT, null);
-//				 } 
-//				 catch (ParserConfigurationException pce) 
-//				 {
-//					 mText.setText("BBBB" + result);
-//					 //nm.notifyWithText(0, “Could not parse XML!”,
-//					 //NotificationManager.LENGTH_SHORT, null);
-//				 }
-//				 catch (SAXException se) 
-//				 {
-//					 mText.setText("CCCC" + result);
-//					 //nm.notifyWithText(0, “Could not parse XML!”,
-//					 //NotificationManager.LENGTH_SHORT, null);
-//				 }
-//					 
-//				String s1 = doc.getElementsByTagName("text").toString();
-//				String s2 = doc.getElementsByTagName("name").toString();
-//				String s3 = s1 + s2;
-				
-//				/* Create a new TextView to display the parsingresult later. */ 
-//		          TextView tv = new TextView(this); 
-//		          try { 
-//		               /* Create a URL we want to load some xml-data from. */ 
-//		               URL url = new URL("http://www.anddev.org/images/tut/basic/parsingxml/example.xml"); 
-//
-//		               /* Get a SAXParser from the SAXPArserFactory. */ 
-//		               SAXParserFactory spf = SAXParserFactory.newInstance(); 
-//		               SAXParser sp = spf.newSAXParser(); 
-//
-//		               /* Get the XMLReader of the SAXParser we created. */ 
-//		               XMLReader xr = sp.getXMLReader(); 
-//		               /* Create a new ContentHandler and apply it to the XML-Reader*/ 
-//		               ExampleHandler myExampleHandler = new ExampleHandler(); 
-//		               xr.setContentHandler(myExampleHandler); 
-//		                
-//		               /* Parse the xml-data from our URL. */ 
-//		               xr.parse(new InputSource(url.openStream())); 
-//		               /* Parsing has finished. */ 
-//
-//		               /* Our ExampleHandler now provides the parsed data to us. */ 
-//		               ParsedExampleDataSet parsedExampleDataSet = 
-//		                                             myExampleHandler.getParsedData(); 
-//
-//		               /* Set the result to be displayed in our GUI. */ 
-//		               tv.setText(parsedExampleDataSet.toString()); 
-//		                
-//		          } catch (Exception e) { 
-//		               /* Display any Error to the GUI. */ 
-//		               tv.setText("Error: " + e.getMessage()); 
-//		               //Log.e(MY_DEBUG_TAG, "WeatherQueryError", e); 
-//		          } 
-//
+//				// Define a list to hold the Twitter updates
+//				List<Map<String, String>> twitterUpdates = new ArrayList<Map<String, String>>();
 //				
-				mText.setText(result);
+//				// Do the SAX parsing
+//				try
+//				{
+//				/* Get a SAXParser from the SAXPArserFactory. */ 
+//		        SAXParserFactory spf = SAXParserFactory.newInstance(); 
+//		        SAXParser sp = spf.newSAXParser(); 
+//
+//		        /* Get the XMLReader of the SAXParser we created. */ 
+//		        XMLReader xr = sp.getXMLReader(); 
+//		        /* Create a new ContentHandler and apply it to the XML-Reader*/ 
+//		        TwitterUpdatesHandler handler = new TwitterUpdatesHandler(); 
+//		        xr.setContentHandler(handler); 
+//		         
+//		        /* Parse the xml-data from our URL. */ 
+//		        xr.parse(result); 
+//		        
+//		        twitterUpdates = handler.getParsedData();
+//		      
+//		        /* Parsing has finished. */
+//				}
+//				catch (MalformedURLException e)
+//				{
+//					e.printStackTrace();
+//				}
+//				catch (IOException e)
+//				{
+//					e.printStackTrace();
+//				}
+//				catch (ParserConfigurationException e)
+//				{
+//					e.printStackTrace();
+//				}
+//				catch (SAXException e)
+//				{
+//					e.printStackTrace();
+//				}
+//		          
+//				String result2 = twitterUpdates.toString();
 				
-
-
-
-			
-							
-			}
+				String strUpdate = "";
+				String strName = "";
+				String strFull = "";
+				
+				// Loop through and parse he XML document	
+				//while (result.indexOf("</text>") > 0)
+				for (int i = 0; i < 6;i++)
+				{				
+				// Get the next text element
+				result = result.substring(result.indexOf("<text>"), result.length() - result.indexOf("<text>")-1);
+				result = result.substring(6, result.length() - 6);
+				strUpdate = result.substring(0, result.indexOf("</text>"));
+				// Get the next name element
+				result = result.substring(result.indexOf("<screen_name>"), result.length() - result.indexOf("<text>")-1);
+				result = result.substring(13, result.length() - 14);
+				strName = result.substring(0, result.indexOf("</screen_name>"));
+     			//Remove the name element
+				//result = result.substring(result.indexOf("</name>") + 7, result.length() - result.indexOf("</name>") - 8);
+				// Build a string of name/text pairs
+				strFull = strFull + strName + "   " + strUpdate + "  " + "\n\r\n\r";
+				
+				}
+				// Display parsed screen_name and text elements
+			   mText.setText(strFull);
+				
+				}
 		});
 			// Add a click listener for the Update button
 			mUpdateButton.setOnClickListener(new View.OnClickListener()
@@ -214,7 +238,6 @@ public class TWC extends Activity
 					//String result = client.getFriendsTimeline();
 					
 					// Send resulting XML to the TewtView on the screen
-					// Ultimately I want to parse out the updates
 					mText.setText(result);
 				}		
         	});

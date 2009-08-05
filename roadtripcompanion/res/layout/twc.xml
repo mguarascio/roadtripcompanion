@@ -16,7 +16,7 @@ android:layout_height="wrap_content"
 android:layout_width="wrap_content"></TextView>
 
 <TextView 
-android:text="            Password" 
+android:text="                      Password" 
 android:id="@+id/passwordLabel" 
 android:layout_height="wrap_content" 
 android:layout_width="wrap_content"
@@ -52,7 +52,7 @@ android:password="true">
 <Button android:id="@+id/authenticateButton" 
 android:layout_width="fill_parent" 
 android:layout_height="wrap_content" 
-android:text="Authenticate"></Button>
+android:text="Retrieve Updates"></Button>
 
 <TextView 
 android:text="Tweet Text" 
@@ -69,7 +69,7 @@ android:layout_height="wrap_content"></EditText>
 <Button android:id="@+id/updateButton" 
 android:layout_width="fill_parent" 
 android:layout_height="wrap_content" 
-android:text="Update"></Button>
+android:text="Send Update"></Button>
 
 <TextView 
 android:text="" 

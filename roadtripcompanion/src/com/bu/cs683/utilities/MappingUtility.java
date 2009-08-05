@@ -183,7 +183,7 @@ public class MappingUtility
          
         /* Parse the xml-data from our URL. */ 
         xr.parse(new InputSource(url.openStream())); 
-        
+                
         directions = handler.getParsedData();
       
         /* Parsing has finished. */
